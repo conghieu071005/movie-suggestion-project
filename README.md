@@ -10,12 +10,17 @@ Nếu hai người có cùng sở thích xem phim (cùng thích một số bộ 
 - 🖥️ Giao diện
 
 🏠 Trang chủ: hiển thị danh sách phim và ô tìm kiếm.
-<img width="1896" height="882" alt="image" src="https://github.com/user-attachments/assets/76179731-caaa-4ca7-b035-58476b9f65df" />
+<img width="1872" height="864" alt="image" src="https://github.com/user-attachments/assets/46c48ede-f3c9-4b0c-a683-2bf5eb272b89" />
+
 
 
 ⭐ Trang đánh giá: người dùng có thể chấm điểm phim.
+<img width="1888" height="844" alt="image" src="https://github.com/user-attachments/assets/5fcfb3bc-92a5-4984-a2e4-6b9a21a5d6a5" />
+
 
 🤖 Trang đề xuất: hiển thị danh sách các phim được gợi ý dựa trên hành vi đánh giá của người dùng.
+<img width="1867" height="867" alt="image" src="https://github.com/user-attachments/assets/3abe7512-87eb-41e5-859d-cd4c1b603f85" />
+
 
 - ⚙️ Công nghệ sử dụng
   
