@@ -9,22 +9,34 @@ Nếu hai người có cùng sở thích xem phim (cùng thích một số bộ 
 🖥️ Giao diện
 
 🏠 Trang chủ: hiển thị danh sách phim và ô tìm kiếm.
+
 ⭐ Trang đánh giá: người dùng có thể chấm điểm phim.
+
 🤖 Trang đề xuất: hiển thị danh sách các phim được gợi ý dựa trên hành vi đánh giá của người dùng.
 
 ⚙️ Công nghệ sử dụng
-
 🔹 Web Framework & Frontend
-Django (Python)
-HTML, CSS, Bootstrap, JavaScript
-🔹 Machine Learning
-Numpy, Pandas, Scipy
-Áp dụng thuật toán Collaborative Filtering dựa trên Matrix Factorization
-🔹 Cơ sở dữ liệu
-SQLite (có thể mở rộng sang PostgreSQL hoặc MySQL)
-💡 Cách hoạt động
-Người dùng đăng ký, đăng nhập và đánh giá một vài bộ phim.
-Hệ thống ghi nhận dữ liệu đánh giá.
-Sử dụng thuật toán học máy để dự đoán các bộ phim phù hợp nhất.
-Hiển thị danh sách phim được đề xuất cá nhân hóa cho từng người.
 
+Django (Python)
+
+HTML, CSS, Bootstrap, JavaScript
+
+🔹 Machine Learning
+
+Numpy, Pandas, Scipy
+
+Áp dụng thuật toán Collaborative Filtering dựa trên Matrix Factorization
+
+🔹 Cơ sở dữ liệu
+
+SQLite (có thể mở rộng sang PostgreSQL hoặc MySQL)
+
+💡 Cách hoạt động
+
+Người dùng đăng ký, đăng nhập và đánh giá một vài bộ phim.
+
+Hệ thống ghi nhận dữ liệu đánh giá.
+
+Sử dụng thuật toán học máy để dự đoán các bộ phim phù hợp nhất.
+
+Hiển thị danh sách phim được đề xuất cá nhân hóa cho từng người.
