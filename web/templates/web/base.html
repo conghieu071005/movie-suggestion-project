@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>{% block title %}Movies{% endblock title %}</title>
+    {% load static %}
+
+	<link rel="stylesheet" href="{% static 'web/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'web/css/base.css' %}">
+
+    <style>
+        /* 🌟 Ngôi sao đánh giá */
+        .thumbnail p, .thumbnail h4 {
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+        .star-rating {
+            line-height: 32px;
+            font-size: 1.25em;
+        }
+        .star-rating .fa-star { color: yellow; }
+
+        /* 🌞 Giao diện sáng (mặc định) */
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+            transition: background-color 0.4s, color 0.4s;
+        }
+
+        /* 🔹 Xóa khung / viền / bóng cho toàn bộ trang */
+        * { box-shadow: none !important; }
+        .navbar, footer, .panel, .container, .thumbnail, hr {
+            background: none !important;
+            border: none !important;
+            box-shadow: none !important;
+        }
+
+        .navbar {
+            background-color: #222 !important;
+            border: none !important;
+        }
+
+        /* 🌟 Viền cho nút */
+        .navbar .nav > li > a {
+            border: 1px solid #555;
+            border-radius: 6px;
+            margin: 8px;
+            padding: 6px 12px;
+            color: #00bcd4 !important;
+            transition: all 0.3s ease;
+        }
+
+        .navbar .nav > li > a:hover {
+            background-color: #00bcd4;
+            color: #fff !important;
+            border-color: #00bcd4;
+        }
+
+        /* 🌙 Dark Mode */
+        body.dark-mode {
+            background-color: #121212;
+            color: #f0f0f0;
+        }
+        body.dark-mode .navbar {
+            background-color: #1e1e1e !important;
+        }
+        body.dark-mode footer {
+            background: none !important;
+            color: #f0f0f0;
+        }
+        body.dark-mode a,
+        body.dark-mode h1,
+        body.dark-mode h2,
+        body.dark-mode h3 {
+            color: #66ccff !important;
+        }
+        body.dark-mode input,
+        body.dark-mode textarea {
+            background-color: #2c2c2c;
+            color: white;
+            border: 1px solid #444;
+        }
+
+        body.dark-mode .navbar .nav > li > a {
+            border: 1px solid #888;
+            color: #66ccff !important;
+        }
+        body.dark-mode .navbar .nav > li > a:hover {
+            background-color: #66ccff;
+            color: #000 !important;
+        }
+
+        /* 🌗 Nút chuyển chế độ */
+        #theme-toggle {
+            background-color: #444;
+            color: #fff;
+            border: 1px solid #555;
+            padding: 6px 10px;
+            border-radius: 6px;
+            margin: 8px;
+            cursor: pointer;
+        }
+        #theme-toggle:hover {
+            background-color: #666;
+        }
+
+        /* 💫 Icon footer */
+        footer img {
+            margin: 0 5px;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+        footer img:hover {
+            transform: scale(1.15);
+            opacity: 0.8;
+        }
+    </style>
+</head>
+
+<body>
+	<nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <!-- Header -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="">Movies</a>
+            </div>
+
+            <!-- Items -->
+            <div class="collapse navbar-collapse" id="topNavBar">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="{% url 'index' %}">
+                            <i class="fa fa-home"></i>&nbsp; Trang chủ
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <!-- 🌙 Nút Dark Mode -->
+                    <li>
+                        <button id="theme-toggle" class="btn btn-sm navbar-btn">
+                            🌙 Dark Mode
+                        </button>
+                    </li>
+
+                    {% if not request.user.is_authenticated %}
+                        <li>
+                            <a href="{% url 'signup' %}">
+                                <i class="fa fa-user-plus"></i>&nbsp; Đăng ký
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'login' %}">
+                                <i class="fa fa-sign-in"></i>&nbsp; Đăng nhập
+                            </a>
+                        </li>
+                    {% else %}
+                        <li>
+                            <a href="{% url 'logout' %}">
+                                <i class="fa fa-sign-out"></i>&nbsp; Đăng xuất
+                            </a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    {% block body %}
+    {% endblock %}
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div>
+            <a href="https://www.facebook.com/conghieu07.05?locale=vi_VN" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" width="40" height="40">
+            </a>
+            <a href="https://instagram.com/your-link" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" alt="Instagram" width="40" height="40">
+            </a>
+            <a href="https://github.com/conghieu071005" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="GitHub" width="40" height="40">
+            </a>
+            <a href="https://www.tiktok.com/@alexnguyentrading" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/3046/3046120.png" alt="TikTok" width="40" height="40">
+            </a>
+        </div>
+        <p style="margin-top: 10px; color: gray;">
+            © 2025 Copyright: <a href="#">conghieu05</a>
+        </p>
+    </footer>
+
+	<script src="{% static 'web/js/jquery.min.js' %}"></script>
+	<script src="{% static 'web/js/bootstrap.min.js' %}"></script>
+
+    <!-- ⭐ JS cho rating -->
+    <script>
+        var $star_rating = $('.star-rating .fa');
+        var SetRatingStar = function() {
+            return $star_rating.each(function() {
+                if (parseInt($star_rating.siblings('input.rating-value').val()) >= parseInt($(this).data('rating'))) {
+                    return $(this).removeClass('fa-star-o').addClass('fa-star');
+                } else {
+                    return $(this).removeClass('fa-star').addClass('fa-star-o');
+                }
+            });
+        };
+        $star_rating.on('click', function() {
+            $star_rating.siblings('input.rating-value').val($(this).data('rating'));
+            return SetRatingStar();
+        });
+        SetRatingStar();
+    </script>
+
+    <!-- ⚡ Dark Mode Script -->
+    <script>
+        const toggleBtn = document.getElementById('theme-toggle');
+        const currentTheme = localStorage.getItem('theme');
+
+        if (currentTheme === 'dark') {
+            document.body.classList.add('dark-mode');
+            toggleBtn.textContent = '☀️ Light Mode';
+        }
+
+        toggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            if (document.body.classList.contains('dark-mode')) {
+                toggleBtn.textContent = '☀️ Light Mode';
+                localStorage.setItem('theme', 'dark');
+            } else {
+                toggleBtn.textContent = '🌙 Dark Mode';
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    </script>
+
+    <script>
+        function validateForm() {
+            var x = document.forms["ratingForm"]["rating"].value;
+            if (x == "0") {
+                alert("Vui lòng chọn số sao!");
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>

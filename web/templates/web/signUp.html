@@ -1,0 +1,117 @@
+{% extends 'web/base.html'%}
+{% block title %}Đăng ký{% endblock %}
+
+{% block body %}
+<div class="container" style="margin-top: 40px;">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-default register-panel">
+                <div class="panel-body">
+                    <h3 class="text-center" style="color: #00bcd4;">Đăng ký</h3>
+                    {% if error_message %}
+                        <p><strong>{{ error_message }}</strong></p>
+                    {% endif %}
+                    <form class="form-horizontal" role="form" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {% include 'web/form_template.html' %}
+                        
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-success">Đăng ký</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Footer -->
+                <div class="panel-footer text-center register-footer">
+                    Bạn đã có tài khoản? 
+                    <a href="{% url 'login' %}">Click here</a> để đăng nhập.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Tổng thể form */
+    .register-panel {
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        margin-top: 20px;
+    }
+
+    h3 {
+        font-weight: 600;
+        margin-bottom: 25px;
+    }
+
+    .form-horizontal .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-horizontal label {
+        font-weight: 600;
+        color: #fff;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"] {
+        width: 100%;
+        border-radius: 6px;
+        padding: 8px 10px;
+        border: 1px solid #ccc;
+        background-color: #f5f8ff;
+    }
+
+    /* Nút submit */
+    .btn-success {
+        background-color: #4caf50;
+        border: none;
+        padding: 8px 20px;
+        font-size: 15px;
+        border-radius: 6px;
+    }
+    .btn-success:hover {
+        background-color: #45a049;
+    }
+
+    /* Footer */
+    .register-footer {
+        background: transparent;
+        border: none;
+        padding: 10px;
+        font-size: 15px;
+        color: #000;
+    }
+
+    .register-footer a {
+        color: #00bcd4;
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    .register-footer a:hover {
+        color: #0099bb;
+    }
+
+    /* 🌙 Dark Mode */
+    body.dark-mode .form-horizontal label {
+        color: #f0f0f0 !important;
+    }
+    body.dark-mode input {
+        background-color: #2a2a2a !important;
+        border: 1px solid #555 !important;
+        color: #fff !important;
+    }
+    body.dark-mode .register-footer {
+        color: #f0f0f0 !important;
+    }
+    body.dark-mode .register-footer a {
+        color: #66ccff !important;
+    }
+    body.dark-mode .register-footer a:hover {
+        color: #99ddff !important;
+    }
+</style>
+{% endblock %}

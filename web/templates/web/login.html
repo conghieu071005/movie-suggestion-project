@@ -1,0 +1,82 @@
+{% extends 'web/base.html'%}
+{% block title %}Đăng nhập{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12 col-md-6 col-md-offset-3">
+            <div class="panel panel-default login-panel">
+                <div class="panel-body">
+                    <h3>Đăng nhập</h3>
+                    {% if error_message %}
+                        <p><strong>{{ error_message }}</strong></p>
+                    {% endif %}
+                    <form class="form-horizontal" role="form" action="#" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="id_username">Username:</label>
+                            <div class="col-sm-10">
+                                <input id="id_username" maxlength="30" name="username" type="text" class="form-control">
+                            </div> 
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="id_password">Password:</label>
+                            <div class="col-sm-10">
+                                <input id="id_password" maxlength="30" name="password" type="password" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-success">Đăng nhập</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- ✅ Phần này đã chỉnh màu nền cho Dark Mode -->
+                <div class="panel-footer text-center login-footer">
+                    Bạn chưa có tài khoản? 
+                    <a href="{% url 'signup' %}">Click here</a> để đăng ký.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* 🎨 Panel tổng thể */
+    .login-panel {
+        border: none;
+        box-shadow: none;
+        background: transparent;
+    }
+
+    .login-footer {
+        background: transparent;
+        color: #000;
+        border: none;
+        padding: 12px;
+        font-size: 15px;
+    }
+
+    /* 🌙 Dark Mode */
+    body.dark-mode .login-footer {
+        background: transparent !important;
+        color: #f0f0f0 !important;
+    }
+    body.dark-mode .login-footer a {
+        color: #66ccff !important;
+        text-decoration: none;
+    }
+    body.dark-mode .login-footer a:hover {
+        color: #99ddff !important;
+    }
+
+    /* 💡 Giao diện sáng - chỉnh link đẹp hơn */
+    .login-footer a {
+        color: #00bcd4;
+        text-decoration: none;
+    }
+    .login-footer a:hover {
+        color: #0099bb;
+    }
+</style>
+{% endblock %}

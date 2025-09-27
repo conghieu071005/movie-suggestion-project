@@ -1,0 +1,66 @@
+{% extends 'web/base.html'%}
+{% block body %}
+
+<div class="container">
+    <div class="col-xs-6 col-xs-offset-3">
+    	<form class="form-horizontal" role="search" method="get" action=''>
+         <div class="form-group">
+         <div class="input-group">	
+            <input type="text" class="form-control input-lg " name="q" value="{{ request.GET.q }}" placeholder= "Tìm kiếm "/>
+            <span class='input-group-btn'>
+
+             <button class='btn btn-info btn-lg' type='submit'>Tìm
+             </button>
+         </span>
+        </div>
+     </div>
+   </form>
+
+ </div>
+</div>  
+    {% if messages %}
+            <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %} >{{ message }}</li>
+            {% endfor %}
+            </ul>
+    {% endif %}
+    <div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-2 col-md-3">
+		<h1>Danh sách phim </h1>
+        </div>
+        <div class="col-xs-offset-9  mt-3">
+        <h2><a href="{% url 'recommend' %}" style="text-decoration: none; color: inherit;">Gợi ý phim cho bạn</a></h2>
+        </div>
+    </div>
+	</div>
+	<div class="container-fluid">
+    
+    <!-- Movie list -->
+    <div class="row">
+            {% if movies %}
+            {% for movie in movies %}
+                <div class="col-sm-2 col-md-2 ">
+                    <div class="thumbnail">
+                        <h4>{{movie.title}}</h4>
+                        <a href="{% url 'detail' movie.id %}">
+                            <img src="{{ movie.movie_logo.url}}" class="img-responsive">
+                        </a>
+                        <h5>{{movie.genre}}</h5>
+                        <div class="caption">
+
+                            <!-- View Details -->
+                            <a href="{% url 'detail' movie.id %}" class="btn btn-primary btn-sm" role="button">Đánh giá</a>
+
+                                        
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                {% endif %}
+        </div>
+    
+</div>
+
+{% endblock %}
