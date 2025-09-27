@@ -10,6 +10,8 @@ Nếu hai người có cùng sở thích xem phim (cùng thích một số bộ 
 - 🖥️ Giao diện
 
 🏠 Trang chủ: hiển thị danh sách phim và ô tìm kiếm.
+<img width="1896" height="882" alt="image" src="https://github.com/user-attachments/assets/76179731-caaa-4ca7-b035-58476b9f65df" />
+
 
 ⭐ Trang đánh giá: người dùng có thể chấm điểm phim.
 
