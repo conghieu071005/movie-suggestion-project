@@ -1,4 +1,5 @@
 🎬 Hệ thống Gợi ý Phim (Movie Recommender System)
+
 🧠 Giới thiệu
 
 - Movie Recommender System là một ứng dụng web gợi ý phim dựa trên mô hình lọc cộng tác (Collaborative Filtering), sử dụng phân rã ma trận (Matrix Factorization) để đưa ra gợi ý chính xác cho từng người dùng.
