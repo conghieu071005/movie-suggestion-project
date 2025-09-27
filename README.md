@@ -7,11 +7,13 @@ Hệ thống dựa trên nguyên lý:
 Nếu hai người có cùng sở thích xem phim (cùng thích một số bộ phim giống nhau), thì những bộ phim mà một người đã thích nhưng người kia chưa xem — có thể sẽ là gợi ý phù hợp cho người còn lại. 🎥
 
 🖥️ Giao diện
+
 🏠 Trang chủ: hiển thị danh sách phim và ô tìm kiếm.
 ⭐ Trang đánh giá: người dùng có thể chấm điểm phim.
 🤖 Trang đề xuất: hiển thị danh sách các phim được gợi ý dựa trên hành vi đánh giá của người dùng.
 
 ⚙️ Công nghệ sử dụng
+
 🔹 Web Framework & Frontend
 Django (Python)
 HTML, CSS, Bootstrap, JavaScript
