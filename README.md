@@ -15,6 +15,7 @@ Nếu hai người có cùng sở thích xem phim (cùng thích một số bộ 
 🤖 Trang đề xuất: hiển thị danh sách các phim được gợi ý dựa trên hành vi đánh giá của người dùng.
 
 - ⚙️ Công nghệ sử dụng
+  
 🔹 Web Framework & Frontend
 
 Django (Python)
