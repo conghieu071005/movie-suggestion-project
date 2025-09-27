@@ -40,6 +40,8 @@ Numpy, Pandas, Scipy
 Áp dụng thuật toán Collaborative Filtering dựa trên Matrix Factorization
 
 🔹 Cơ sở dữ liệu
+<img width="1866" height="864" alt="image" src="https://github.com/user-attachments/assets/ba15a465-e191-4228-976a-d442de9220af" />
+
 
 SQLite (có thể mở rộng sang PostgreSQL hoặc MySQL)
 
